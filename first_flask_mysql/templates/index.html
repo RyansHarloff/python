@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <H1>All my friends!</H1>
+        {% for one_user in all_users %}
+            <p>First Name: {{one_user["first_name"]}}</p>
+            <p>Last Name: {{one_user["last_name"]}}</p>
+            <p>Email: {{one_user["email"]}}</p>
+            <hr>
+        {% endfor %}
+    </div>    
+    <div class="container">
+        <h1>Add a friend</h1>
+        <form action="/create">
+        <input type="submit" value="Add Friend">
+        </form>
+    </div>
+</body>
+</html>
