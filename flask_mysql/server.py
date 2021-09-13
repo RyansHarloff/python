@@ -27,5 +27,15 @@ def add_friend_to_db():
 def create():
     return render_template('create.html')
 
+@app.route("/show")
+def show():
+    #query = "SELECT * FROM users WHERE id = %(id)s"
+    #data={
+    #    "id":int(id)
+    #}
+    #db = connectToMySQL("users_schema")
+    #db.query_db(query,data)
+    return render_template('/show')
+
 if __name__ == "__main__":
     app.run(debug=True)

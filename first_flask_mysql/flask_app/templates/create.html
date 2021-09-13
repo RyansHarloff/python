@@ -9,20 +9,15 @@
 </head>
 <body>
     <div class="container">
-        <H1>All my friends!</H1>
-        {% for one_user in all_users %}
-            <p>First Name: {{one_user["first_name"]}}</p>
-            <p>Last Name: {{one_user["last_name"]}}</p>
-            <p>handle: {{one_user["email"]}}</p>
-            <hr>
-        {% endfor %}
-    </div>    
-    <div class="container">
         <h1>Add a friend</h1>
-        <form action="/create">
-        <input type="submit" value="Add Friend">
+        <form action="/create_friend" method="POST">
+            <p>First Name: <input type="text" name="first_name"></p>
+            <p>Last Name: <input type="text" name="last_name"></p>
+            <p>Email: <input type="text" name="email"></p>
+            <input type="submit" value="Add Friend">
         </form>
-    </div>
-    <p>Actions;<a class = "btn btn-primary" href="'delete/{{user[id]}}">Delete</a></p>
+        <div>
+            <p><a class = "btn btn-dark" href="/">Home</a></p>
+        </div>
 </body>
 </html>

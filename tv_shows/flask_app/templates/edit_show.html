@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/logout" class ="btn btn-danger float-right mb-2 mr-2">Logout</a>
+    <a href="/dashboard" class ="btn btn-primary float-right mb-2 mr-2">Tv Shows</a>
+    <div class="container">
+        <h1>Edit Show Info</h1>
+        {%with messages = get_flashed_messages()%}
+            {%if messages%}
+                {%for message in messages%}
+                    <p class= "text-danger">{{message}}</p>
+                {% endfor %}
+            {%endif%}
+        {%endwith%}
+        <form action='/update_show/{{show.id}}' method = 'POST'> 
+            <div class="form-group">
+                <label>Title</label>
+                <input type="text" class="form-control" name = 'title' value = {{show.title}}>
+            </div>
+            <div class="form-group">
+                <label>Network</label>
+                <input type="text" class="form-control" name = 'network' value = {{show.network}}>
+            </div>
+            <div class="form-group">
+                <label>Release date</label>
+                <input type="text" class="form-control" name = 'release_date' value = {{show.release_date}}>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Show Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+            <input type="submit" class="btn btn-success" value ='Edit Show'>
+        </form>
+    </div>
+</body>
+</html>
